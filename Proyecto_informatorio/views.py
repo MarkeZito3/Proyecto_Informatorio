@@ -1,4 +1,6 @@
-from django.shortcuts import render
+#debemos declarar la vista que queremos mostrar
+from django.views.generic import TemplateView
 
-def home(request):
-    return render(request,"index.html")
+class HomePageView(TemplateView):
+    #hace referencia a lo que queres cargar cuando carguemos la clase
+    template_name = 'index.html'
