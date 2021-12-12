@@ -15,6 +15,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
+
 from django.urls import path, include
 from .views import (
     HomePageView,
@@ -24,3 +25,20 @@ urlpatterns = [
     path('',HomePageView.as_view(), name='home'),
     path('blog/', include('blog.urls', namespace='blog')),
 ]
+
+from django.urls import path
+from django.views.generic import TemplateView
+
+from . import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+
+
+    #vistas basadas en clases
+    path('', views.Index.as_view(template_name='index.html'), name='index'),
+    path('services', views.Services.as_view(template_name='pages/services.html'), name='services'),
+    path('blog',views.Blog.as_view(template_name='pages/blog.html'),name='blog'),
+    path('contact', views.Contact.as_view(template_name='pages/contact.html'), name='contact'),
+]
+
