@@ -121,19 +121,13 @@ USE_TZ = True
 
 #los archivos estáticos son los archivos que cargamos nosotros como página que en teoría no deberían cambiar
 STATIC_URL = '/static/'
-
-"""STATICFILES_DIR = (
-    os.path.join(os.path.dirname(BASE_DIR), 'static')
-)
-=======
 STATICFILES_DIRS = (
         os.path.join(os.path.dirname(BASE_DIR), 'static'), 
     )
 
-
 # y los archivos de media son los archivos generados por la interacción de los usuarios 
-MEDIA_URL = '/media/'"""
-"MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')"
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
