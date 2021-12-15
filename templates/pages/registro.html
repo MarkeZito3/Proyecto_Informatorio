@@ -1,52 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-
-
 {% block body_block %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Proyecto_Informatorio</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="../static/css/style.css" rel="stylesheet">
-
-</head>
-
-<body>
 
   <main id="main">
-
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
         <div class="d-flex justify-content-between align-items-center">
           <h2></h2>
-          
         </div>
-
       </div>
     </section><!-- End Breadcrumbs -->
 
@@ -54,41 +17,67 @@
 
     <div class="FormWrapper">
         <form id="Form_User_Register" method="post" action="/entry/register">
-    <div>
-    <input type="hidden" id="Form_TransientKey" name="TransientKey" value=""><input type="hidden" id="Form_hpt" name="hpt" value="" style="display: none;"><input type="hidden" id="Form_ClientHour" name="ClientHour" value="2021-12-15 10:00"><input type="hidden" id="Form_Target" name="Target" value="/post/discussion">        <ul>
-                            <li>
-                    <label for="Form_Email">Correo Electrónico</label>
-    <div class="TextBoxWrapper"><input type="email" id="Form_Email" name="Email" value="" class="InputBox"></div><span id="EmailUnavailable" class="Incorrect" style="display: none;">Email No Disponible</span>                </li>
-                        <li>
+          <div>
+            <input type="hidden" id="Form_TransientKey" name="TransientKey" value="">
+            <input type="hidden" id="Form_hpt" name="hpt" value="" style="display: none;">
+            <input type="hidden" id="Form_ClientHour" name="ClientHour" value="2021-12-15 10:00">
+            <input type="hidden" id="Form_Target" name="Target" value="/post/discussion">        
+            <ul>
+              <li>
+                <label for="Form_Email">Correo Electrónico</label>
+                <div class="TextBoxWrapper">
+                  <input type="email" id="Form_Email" name="Email" value="" class="InputBox">
+                </div>
+                <span id="EmailUnavailable" class="Incorrect" style="display: none;">Email No Disponible</span>                
+              </li>
+              <li>
                 <label for="Form_Name">Nombre Usuario</label>
-    <div class="TextBoxWrapper"><input type="text" id="Form_Name" name="Name" value="" autocorrect="off" autocapitalize="off" class="InputBox"></div><span id="NameUnavailable" class="Incorrect" style="display: none;">Nombre no disponible</span>            </li>
-                        <li>
+                <div class="TextBoxWrapper">
+                  <input type="text" id="Form_Name" name="Name" value="" autocorrect="off" autocapitalize="off" class="InputBox">
+                </div>
+                <span id="NameUnavailable" class="Incorrect" style="display: none;">Nombre no disponible</span>
+              </li>
+              <li>
                 <label for="Form_Password">Contraseña</label>
-    <div class="Gloss">Tu contraseña debe contener al menos 6 caracteres. Para lograr una contraseña más segura, aumenta la longitud o combine letras mayúsculas y minúsculas, números y símbolos.</div><div class="TextBoxWrapper"><input type="password" id="Form_Password" name="Password" data-strength="true" value="" strength="" class="InputBox"><div class="PasswordStrength" style="width: 909px;">
-    <div class="Background"></div>
-    <div class="Strength"></div>
-    <div class="Separator" style="left: 20%;"></div>
-    <div class="Separator" style="left: 40%;"></div>
-    <div class="Separator" style="left: 60%;"></div>
-    <div class="Separator" style="left: 80%;"></div>
-    <div class="StrengthText">&nbsp;</div>
-    </div></div>            </li>
-            <li>
+                <div class="Gloss">Tu contraseña debe contener al menos 6 caracteres. Para lograr una contraseña más segura, aumenta la longitud o combine letras mayúsculas y minúsculas, números y símbolos.</div>
+                <div class="TextBoxWrapper">
+                  <input type="password" id="Form_Password" name="Password" data-strength="true" value="" strength="" class="InputBox">
+                  <div class="PasswordStrength" style="width: 909px;">
+                    <div class="Background"></div>
+                    <div class="Strength"></div>
+                    <div class="Separator" style="left: 20%;"></div>
+                    <div class="Separator" style="left: 40%;"></div>
+                    <div class="Separator" style="left: 60%;"></div>
+                    <div class="Separator" style="left: 80%;"></div>
+                    <div class="StrengthText">&nbsp;</div>
+                  </div>
+                </div>
+              </li>
+              <li>
                 <label for="Form_PasswordMatch">Confirmar Contraseña</label>
-    <div class="TextBoxWrapper"><input type="password" id="Form_PasswordMatch" name="PasswordMatch" value="" class="InputBox"></div><span id="PasswordsDontMatch" class="Incorrect" style="display: none;">Las contraseñas no coinciden.</span>            </li>
-                        
-            <li>
-                <label for="Form_TermsOfService" class="CheckBoxLabel"><input type="hidden" name="Checkboxes[]" value="TermsOfService"><input type="checkbox" id="Form_TermsOfService" name="TermsOfService" value="1" class=""> Estoy de acuerdo con <a id="TermsOfService" class="Popup" target="terms" href="/home/termsofservice">los términos de servicio</a></label><label for="Form_RememberMe" class="CheckBoxLabel"><input type="hidden" name="Checkboxes[]" value="RememberMe"><input type="checkbox" id="Form_RememberMe" name="RememberMe" value="1" class=""> Recordarme en este ordenador</label>            </li>
-            <li class="Buttons">
+                <div class="TextBoxWrapper">
+                  <input type="password" id="Form_PasswordMatch" name="PasswordMatch" value="" class="InputBox">
+                </div>
+                <span id="PasswordsDontMatch" class="Incorrect" style="display: none;">Las contraseñas no coinciden.</span>
+              </li>
+              <li>
+                <label for="Form_TermsOfService" class="CheckBoxLabel">
+                  <input type="hidden" name="Checkboxes[]" value="TermsOfService">
+                  <input type="checkbox" id="Form_TermsOfService" name="TermsOfService" value="1" class=""> Estoy de acuerdo con <a id="TermsOfService" class="Popup" target="terms" href="/home/termsofservice">los términos de servicio</a>
+                </label>
+                <label for="Form_RememberMe" class="CheckBoxLabel">
+                  <input type="hidden" name="Checkboxes[]" value="RememberMe">
+                  <input type="checkbox" id="Form_RememberMe" name="RememberMe" value="1" class=""> Recordarme en este ordenador
+                </label>
+              </li>
+              <li class="Buttons">
                 <input type="submit" id="Form_SignUp" name="Sign Up" class="Button Primary" value="Registrarse">
-            </li>
-        </ul>
-        </div>
-    </form>    </div>
+              </li>
+            </ul>
+          </div>
+        </form>
+      </div>
     </div>
-    
-
-</html>
 {% endblock body_block%}
 
 
