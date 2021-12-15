@@ -1,18 +1,3 @@
-"""Proyecto_informatorio URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
@@ -28,4 +13,6 @@ urlpatterns = [
     path('services', views.Services.as_view(template_name='pages/services.html'), name='services'),
     path('blog',views.Blog.as_view(template_name='pages/blog.html'),name='blog'),
     path('contact', views.Contact.as_view(template_name='pages/contact.html'), name='contact'),
+    path('registro', views.Register.as_view(template_name='pages/registro.html'), name='register'),
+    path('passwordrequest', views.Passwordrequest.as_view(template_name='pages/passwordrequest.html'), name='passwordrequest'),
 ]

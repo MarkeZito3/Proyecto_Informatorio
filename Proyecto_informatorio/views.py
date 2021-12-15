@@ -28,3 +28,9 @@ class Blog(TemplateView):
 
 class Contact(TemplateView):
     template_name = "pages/contact.html"
+
+class Register(TemplateView):
+    template_name="pages/registro.html"
+
+class Passwordrequest(TemplateView):
+    template_name = "passwordrequest.html"
