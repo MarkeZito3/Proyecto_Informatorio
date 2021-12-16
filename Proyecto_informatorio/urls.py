@@ -1,6 +1,7 @@
-from django.contrib import admin
-from django.urls import path
-from django.views.generic import TemplateView
+from django.contrib      import admin
+from django.contrib.auth import views as auth_views
+from django.urls         import path
+# from django.views.generic import TemplateView
 
 from . import views
 
@@ -9,10 +10,12 @@ urlpatterns = [
 
 
     #vistas basadas en clases
-    path('', views.Index.as_view(template_name='index.html'), name='index'),
-    path('services', views.Services.as_view(template_name='pages/services.html'), name='services'),
-    path('blog',views.Blog.as_view(template_name='pages/blog.html'),name='blog'),
-    path('contact', views.Contact.as_view(template_name='pages/contact.html'), name='contact'),
-    path('registro', views.Register.as_view(template_name='pages/registro.html'), name='register'),
-    path('passwordrequest', views.Passwordrequest.as_view(template_name='pages/passwordrequest.html'), name='passwordrequest'),
+    path('', views.Index.as_view(), name='index'),
+    path('services', views.Services.as_view(), name='services'),
+    path('blog',views.Blog.as_view(),name='blog'),
+    path('registro', views.Register.as_view(), name='register'),
+    path('passwordrequest', views.Passwordrequest.as_view(), name='passwordrequest'),
+    path('contact', auth_views.LoginView.as_view(template_name = 'pages/contact.html'), name='contact'),
+    path('logout', auth_views.logout_then_login, name="logout"),
+    path('profile', views.Profile.as_view(), name='profile'),
 ]

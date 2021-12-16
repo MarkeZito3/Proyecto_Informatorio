@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block body_block %}
-
   <main id="main">
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
@@ -15,18 +14,19 @@
 
     <body class="text-center contact">
       <main class="form-signin">
-        <form>
+        <form method="post">
+          {% csrf_token %}
           <img class="mb-4" src="/static/img/earth.jpg" alt="" width="350" height="200">
           <h1 class="h3 mb-3 fw-normal">Por favor, Inicie Sesión</h1>
 
           <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
+            <input type="text" class="form-control" id="floatingInput" placeholder="example_name" required="" name="username">
+            <label for="floatingInput">Username</label>
           </div>
           <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
             <label for="floatingPassword">Password</label>
-            <a href="passwordrequest">¿Olvidaste tu contraseña?</a>   
+            <a href="{% url 'passwordrequest' %}">¿Olvidaste tu contraseña?</a>   
           </div>
 
           <div class="checkbox mb-3">
@@ -38,8 +38,7 @@
           <p class="mt-5 mb-3 text-muted"></p>
         </form>
       </main>
-      <div class="CreateAccount">¿No tienes cuenta? <a href="registro">Crea una</a></div>
+      <div class="CreateAccount">¿No tienes cuenta? <a href="{% url 'register' %}">Crea una</a></div>
     </body>
-<!-- End Contact Section -->
   </main><!-- End #main -->
 {% endblock body_block%}

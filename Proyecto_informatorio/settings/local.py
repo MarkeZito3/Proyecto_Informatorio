@@ -3,3 +3,13 @@
 
 from .base import *
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        "NAME": "chaco17al30",
+        "USER": "root",
+        "PASSWORD": "admin",
+        "HOST": "localhost",
+        "PORT": "3306"
+    }
+}

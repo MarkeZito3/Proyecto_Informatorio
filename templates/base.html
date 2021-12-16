@@ -5,7 +5,6 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title>Proyecto_Informatorio</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -40,17 +39,49 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a href="{% url 'index' %}" class="active">Pagina principal</a></li>
-          <li><a href="{% url 'services' %}" class="active">¿Qué Són los ODS?</a></li>
-          <li><a href="{% url 'blog' %}" class="active">Blog</a></li>
-          <!--<li><a href="portfolio.html">Portfolio</a></li>-->
-          <li><a href="{% url 'contact' %}">Iniciar sesión / Registrarse</a></li>
 
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            {% comment %} Index {% endcomment %}
+            {% ifequal request.path '/' %} 
+              <li><a href="{% url 'index' %}" class="active">Pagina principal</a></li>
+            {% else %}
+              <li><a href="{% url 'index' %}" class="">Pagina principal</a></li>
+            {% endifequal %}
+
+            {% comment %} Services {% endcomment %}
+            {% ifequal request.path '/services' %}
+              <li><a href="{% url 'services' %}" class="active">¿Qué Són los ODS?</a></li>
+            {% else %}
+              <li><a href="{% url 'services' %}" class="">¿Qué Són los ODS?</a></li>
+            {% endifequal %}
+
+            {% comment %} blogs {% endcomment %}
+            {% ifequal request.path '/blog' %}
+              <li><a href="{% url 'blog' %}" class="active">Blog</a></li>
+            {% else %}
+              <li><a href="{% url 'blog' %}" class="">Blog</a></li>
+            {% endifequal %}
+              
+
+            {% comment %} login/register/user {% endcomment %}
+            {% if user.is_authenticated %}
+              {% ifequal request.path '/profile' %} 
+                <li><a href="{% url 'profile' %}" class="active">{{user.username}}</a></li>
+              {% else %}
+                <li><a href="{% url 'profile' %}">{{user.username}}</a></li>
+              {% endifequal %}
+            {% else %}
+              {% ifequal request.path '/contact' %} 
+              <li><a href="{% url 'contact' %}" class="active">Iniciar sesión / Registrarse</a></li>
+              {% else %}
+              <li><a href="{% url 'contact' %}">Iniciar sesión / Registrarse</a></li>
+              {% endifequal %}
+            {% endif %}
+              
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
 
       <div class="header-social-links d-flex">
         <a href="#" class="twitter"><i class="bu bi-twitter"></i></a>

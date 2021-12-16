@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
+#views basadas en clases 
 """
     todos estos se encuentran en django.views.generic
 
@@ -14,8 +15,6 @@ from django.views.generic import TemplateView
     estas son unas vistas que ya estan en django que ya tienen todo el código necesario
     para la cumplir con esas funcionalidades
 """
-#views basadas en clases 
-
 
 class Index(TemplateView):
     template_name = "index.html"
@@ -26,11 +25,17 @@ class Services(TemplateView):
 class Blog(TemplateView):
     template_name = "pages/blog.html"
 
-class Contact(TemplateView):
-    template_name = "pages/contact.html"
+# class Contact(TemplateView):
+    # template_name = "pages/contact.html"
 
 class Register(TemplateView):
     template_name="pages/registro.html"
 
 class Passwordrequest(TemplateView):
-    template_name = "passwordrequest.html"
+    template_name = "pages/passwordrequest.html"
+
+class Profile(TemplateView):
+    template_name = "pages/profile.html"
+
+#views basadas en funciones
+
