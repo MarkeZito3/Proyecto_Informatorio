@@ -1,3 +1,6 @@
-from django.contrib import admin
+"""from django.contrib import admin
+from apps.blogs.models import Post, UserProfile
 
-# Register your models here.
+admin.site.register(Post)
+admin.site.register(UserProfile)
+"""

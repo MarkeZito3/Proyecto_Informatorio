@@ -40,11 +40,15 @@ DJANGO_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',]
+    'django.contrib.staticfiles',
+    'ckeditor',]
 
 MY_APPS = [
     'apps.blogs',
     'apps.users',
+    'apps.post',
+    'apps.comments',
+    'apps.categories',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + MY_APPS
