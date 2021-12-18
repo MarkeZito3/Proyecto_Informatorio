@@ -38,6 +38,7 @@ MY_APPS = [
     'apps.users',
     'apps.comments',
     'apps.categories',
+    'ckeditor',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + MY_APPS
@@ -130,6 +131,8 @@ STATICFILES_DIRS = (
 # y los archivos de media son los archivos generados por la interacción de los usuarios 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -1,38 +1,37 @@
-#Django a partir de clases genera tablas para la base de datos 
 
 from django.db import models
+
+from django.utils.text import slugify
 from django.contrib.auth.models import User
-from django.db.models.deletion import CASCADE #Se importa el modelo que hace referencia a los usuarios definidio por django
-from django.template.defaultfilters import slugify
+from ckeditor.fields import RichTextField 
 from apps.categories.models import Category
-# Create your models here.
-
-class UserProfile(models.Model):
-    nombre = models.CharField(max_length=300)
-    usuario = models.OneToOneField( User, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return '%s' % self.nombre
 
 class Post(models.Model):
-    titulo = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=100, unique=True)
-    cuerpo = models.TextField()
-    publicado = models.DateTimeField(auto_now_add=True)
-    presentar = models.BooleanField(blank = True, null = False, default=True)
-    autor = models.ForeignKey(UserProfile, on_delete=CASCADE)
-    categories = models.ManyToManyField(Category) # El listado de categorías asignadas a un post, es una relación de tipo N a N ya que un post puede tener varias categorías y una categoría puede pertenecer a varios posts.
     
-class Meta:
-        ordering = ('title',)   
+    
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
+    profile = models.ForeignKey('users.Profile', on_delete=models.PROTECT)
+
+    title = models.CharField(max_length=255)
+    image_header = models.ImageField(upload_to='posts/photos')#Cabecera del post
+    post = RichTextField()#permite crer textos con distintos tamaños, tipos de letra, colores, etc
+
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
+    is_draft = models.BooleanField(default=True)#Un campo de tipo booleano, guardaremos si es un borrador o lo queremos mostrar en la web.
+    url = models.SlugField(max_length=255, unique=True)
+    views = models.PositiveIntegerField(default=0)
+    categories = models.ManyToManyField(Category) # El listado de categorías asignadas a un post, es una relación de tipo N a N ya que un post puede tener varias categorías y una categoría puede pertenecer a varios posts.
+
+    class Meta:
+        ordering = ('title',)
+
+
+    def __str__(self):
         
-        def __str__(self):
-            return self.titulo
-   
-        def save(self, *args, **kwargs):
-            if not self.id:
-                self.slug = slugify(self.titulo)
+        return '{} by @{}'.format(self.title, self.user.username)
 
-            super(Post, self).save(*args, **kwargs)
 
-#Dejo comentado por ahora 
+    def save(self, *args, **kwargs):
+        self.url = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)
