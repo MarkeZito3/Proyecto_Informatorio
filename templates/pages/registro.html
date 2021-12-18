@@ -17,12 +17,14 @@
 
     <div class="FormWrapper">
         <form id="Form_User_Register" method="post" action="/entry/register">
+          {% csrf_token %}
           <div>
             <input type="hidden" id="Form_TransientKey" name="TransientKey" value="">
             <input type="hidden" id="Form_hpt" name="hpt" value="" style="display: none;">
             <input type="hidden" id="Form_ClientHour" name="ClientHour" value="2021-12-15 10:00">
-            <input type="hidden" id="Form_Target" name="Target" value="/post/discussion">        
-            <ul>
+            <input type="hidden" id="Form_Target" name="Target" value="/post/discussion">
+
+            for {% %}
               <li>
                 <label for="Form_Email">Correo Electrónico</label>
                 <div class="TextBoxWrapper">
@@ -73,7 +75,7 @@
               <li class="Buttons">
                 <input type="submit" id="Form_SignUp" name="Sign Up" class="Button Primary" value="Registrarse">
               </li>
-            </ul>
+
           </div>
         </form>
       </div>

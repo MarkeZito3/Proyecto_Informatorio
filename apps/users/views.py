@@ -12,7 +12,7 @@ from apps.users.forms import SignupForm
 class SignupView(FormView):
     """Users sign up view."""
 
-    template_name = ''
+    template_name = 'registro.html'
     form_class = SignupForm
     success_url = reverse_lazy('users:registerok')
 

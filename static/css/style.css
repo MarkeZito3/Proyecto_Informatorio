@@ -52,7 +52,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
-    transition-delay: 0 !important;
+    transition-delay: 0ms !important;
   }
 }
 /*--------------------------------------------------------------
@@ -1397,3 +1397,54 @@ body .contact{
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;}
+
+/** inicia página servicios**/
+
+.texto {
+  padding: 2rem;
+  font-size: 20px;
+  margin-bottom: 18px;
+  line-height: 20px;
+  color: #4d4d4d;
+  margin-top: 1rem;
+  text-align: left;
+}
+.sombra{
+  -webkit-box-shadow: 0px 5px 15px 1px rgba(102,102,102,1);
+  -moz-box-shadow: 0px 5px 15px 1px rgba(102,102,102,1);
+  box-shadow: 0px 5px 15px 1px rgba(102,102,102,1);
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+.serviciomain {
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 2rem;
+}
+.contenedor {
+  max-width: 120rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+  text-align: center;
+}
+.interior {
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2rem;
+}
+.lista{
+  text-align: left;
+}
+.servicio__contenido{
+  align-self: center;
+  font-size: 18px;
+  padding-top: 2rem;
+  display: block;
+}
+.imagenclass{
+  grid-row: 1 / 2;
+  justify-self: center;
+  width: 30%;
+  height: 30%;
+  background-color: #4d4d4d;
+}
