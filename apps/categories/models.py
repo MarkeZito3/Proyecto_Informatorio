@@ -1,4 +1,4 @@
-"""from django.db import models
+from django.db import models
 
 # Models
 
@@ -12,4 +12,4 @@ class Category(models.Model):
         ordering = ('name',)
 
     def __str__(self):
-        return self.name"""
+        return self.name

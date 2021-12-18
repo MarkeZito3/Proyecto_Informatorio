@@ -1,4 +1,4 @@
-"""from django.views.generic.list import ListView #Crear listas de objetos
+from django.views.generic.list import ListView #Crear listas de objetos
 from django.views.generic.detail import DetailView #ver esas listas
 from apps.blogs.models import Post
 
@@ -22,4 +22,3 @@ class PostDetailView(DetailView): #permite ver un objeto a traves de una url
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         return context
-"""

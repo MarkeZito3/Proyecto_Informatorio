@@ -1,4 +1,4 @@
-"""# Django
+# Django
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib import admin
 
@@ -68,4 +68,3 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)   
-"""

@@ -1,4 +1,4 @@
-"""from django.contrib import admin
+from django.contrib import admin
 
 # Register your models here.
 from apps.comments.models import Comment
@@ -7,4 +7,4 @@ from apps.comments.models import Comment
 class CommentAdmin(admin.ModelAdmin):
     #Comment admin.
 
-    list_display = ('id', 'user', 'post', 'comment')"""
+    list_display = ('id', 'user', 'post', 'comment')
