@@ -25,12 +25,6 @@ class Services(TemplateView):
 class Blog(TemplateView):
     template_name = "pages/blog.html"
 
-# class Contact(TemplateView):
-    # template_name = "pages/contact.html"
-
-class Register(TemplateView):
-    template_name="pages/registro.html"
-
 class Passwordrequest(TemplateView):
     template_name = "pages/passwordrequest.html"
 

@@ -1,27 +1,15 @@
 from django.shortcuts import render
 
-from django.views.generic import FormView
-from django.urls import reverse, reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth import views as auth_views
+from django.urls               import reverse_lazy
+from django.views.generic      import ListView, CreateView 
 
-# Forms
-from apps.users.forms import SignupForm
+from .forms  import UsuarioForm
+from .models import User
 
+class Registrarme(CreateView):
+	template_name = "pages/registro.html"
+	model = User
+	form_class = UsuarioForm
 
-class SignupView(FormView):
-    """Users sign up view."""
-
-    template_name = 'registro.html'
-    form_class = SignupForm
-    success_url = reverse_lazy('users:registerok')
-
-    def form_valid(self, form):
-        """Save form data."""
-        form.save()
-        return super().form_valid(form)
-
-"""En template_name le pasamos la template que vamos a utilizar.
-En form_class el formulario que creamos anteriormente.
-success_url será la url a la que redireccionará si todo ha ido bien.
-Por último utilizamos la función form_valid para guardar el usuario si todo ha salido bien."""
+	def get_success_url(self, **kwargs):
+		return reverse_lazy("index")
