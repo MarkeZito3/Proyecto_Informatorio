@@ -39,6 +39,7 @@ MY_APPS = [
     'apps.comments',
     'apps.categories',
     'ckeditor',
+    'ckeditor_uploader',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + MY_APPS
@@ -133,6 +134,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+AUTH_USER_MODEL = "users.User"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

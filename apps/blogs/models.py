@@ -1,15 +1,15 @@
 
-from django.db import models
-
-from django.utils.text import slugify
-from django.contrib.auth.models import User
-from ckeditor.fields import RichTextField 
-from apps.categories.models import Category
+from django.db                  import models
+from django.utils               import timezone
+from django.utils.text          import slugify
+from django.contrib.auth.models import User as AbstractBaseUser, PermissionsMixin
+from ckeditor.fields            import RichTextField 
+from apps.categories.models     import Category
 
 class Post(models.Model):
     
     
-    user = models.ForeignKey(User, on_delete=models.PROTECT)
+    user = models.ForeignKey("users.User", on_delete=models.PROTECT) #lo que hace el models.PROTECT es protejer a este en caso de que su "padre" sea eliminado ya que este es una clave foranea
     profile = models.ForeignKey('users.Profile', on_delete=models.PROTECT)
 
     title = models.CharField(max_length=255)

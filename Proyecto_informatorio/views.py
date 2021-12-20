@@ -25,17 +25,14 @@ class Services(TemplateView):
 class Blog(TemplateView):
     template_name = "pages/blog.html"
 
-# class Contact(TemplateView):
-    # template_name = "pages/contact.html"
-
-class Register(TemplateView):
-    template_name="pages/registro.html"
-
 class Passwordrequest(TemplateView):
     template_name = "pages/passwordrequest.html"
 
 class Profile(TemplateView):
     template_name = "pages/profile.html"
+
+class Blog__Single(TemplateView):
+    template_name = "pages/blog-single.html"
 
 #views basadas en funciones
 
