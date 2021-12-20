@@ -1,9 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from django.views.generic.detail import DetailView
 
-from apps.users.models import User
-from apps.core.mixins import *
 #views basadas en clases 
 """
     todos estos se encuentran en django.views.generic
@@ -25,15 +22,6 @@ class Index(TemplateView):
 class Services(TemplateView):
     template_name = "pages/services.html"
 
-class Blog(TemplateView):
-    template_name = "pages/blog.html"
-
-class Passwordrequest(TemplateView):
-    template_name = "pages/passwordrequest.html"
-
-
-class Blog__Single(TemplateView):
-    template_name = "pages/blog-single.html"
 
 #views basadas en funciones
 

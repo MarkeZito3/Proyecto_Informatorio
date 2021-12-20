@@ -10,14 +10,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #vistas basadas en clases
     path('', views.Index.as_view(), name='index'),
-    path('services', views.Services.as_view(), name='services'),
-    path('blog',views.Blog.as_view(),name='blog'),
-    path('blog-single', views.Blog__Single.as_view(), name='blog-single'),
-    path('passwordrequest', views.Passwordrequest.as_view(), name='passwordrequest'),
+    path('services', views.Services.as_view(), name='services'), 
     path('contact', auth_views.LoginView.as_view(template_name = 'pages/contact.html'), name='contact'),
-    path('logout', auth_views.logout_then_login, name="logout"),
-    url('ckeditor/', include('ckeditor_uploader.urls')),
-
-    #vistas con include
-    path('users/',include('apps.users.urls'), name='users'),
+    path('logout', auth_views.logout_then_login, name="logout"), 
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    
+    path('users/', include('apps.users.urls')),
+    path('blogs/', include('apps.blogs.urls')),
 ]
