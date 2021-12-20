@@ -5,11 +5,11 @@ from django.http import HttpResponse
 
 # Models
 from apps.blogs.models import Post
-from categories.models import Category
-from comments.models import Comment
+
+from apps.comments.models import Comment
 
 # Forms
-from comments.forms import CreateCommentForm
+from apps.comments.forms import CreateCommentForm
 
 
 """class PostsFeedView(ListView):
@@ -41,12 +41,12 @@ class PostDetailView(DetailView):
         return Post.objects.filter(is_draft=False)
 
     
-    def get_context_data(self, **kwargs):
+    """def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
         context['comments'] = Comment.objects.filter(post=self.get_object()).all()
         context['form_comments'] = CreateCommentForm()
-        return context
+        return context"""
 
 
 """@login_required

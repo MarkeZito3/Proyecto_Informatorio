@@ -4,7 +4,7 @@
 from django import forms
 
 # Models
-from comments.models import Comment
+from apps.comments.models import Comment
 from django.contrib.auth.models import User
 
 class CreateCommentForm(forms.ModelForm):
@@ -17,7 +17,7 @@ class CreateCommentForm(forms.ModelForm):
         """Form settings."""
 
         model = Comment
-        fields = ('user', 'profile', 'post', 'comment')
+        fields = ('user', 'post', 'comment')
 
 """Aquí estamos creando un campo de tipo textarea que será el que guarde el comentario 
 del usuario y en la clase Meta le decimos el modelo de referencia y los campos que tiene
