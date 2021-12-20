@@ -32,5 +32,8 @@ class Passwordrequest(TemplateView):
     template_name = "pages/passwordrequest.html"
 
 
+class Blog__Single(TemplateView):
+    template_name = "pages/blog-single.html"
+
 #views basadas en funciones
 
