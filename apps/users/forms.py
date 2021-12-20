@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 
 # Models
 from django.contrib.auth.models import User as user_model
-from apps.users.models import User, Profile
+from apps.users.models import User
 
 class UsuarioForm(UserCreationForm):
     first_name = forms.CharField(label="Nombre",max_length=50,widget=forms.TextInput({"placeholder":"Nombre"}))
@@ -18,7 +18,7 @@ class UsuarioForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ["username", "first_name", "last_name", "email"]
+        fields = ["username", "first_name", "last_name", "email",]
 
     def clean_password(self):
         password1 = self.cleaned_data["password1"]
@@ -27,22 +27,3 @@ class UsuarioForm(UserCreationForm):
         if password1 != password2:
             raise ValidationError("las contraseñas no coinciden")
         return password1,password2
-
-
-    # def cleanPasswords(self):
-    #     """Verify password confirmation match."""
-    #     data = super().clean()
-    #     password = data['password']
-    #     password_confirmation = data['password_confirmation']
-    #     if password != password_confirmation:
-    #         raise ValidationError('Las contraseñas no coinciden.')
-    #     return data
-
-    # def save(self):
-    #     """Create user and profile."""
-    #     data = self.cleaned_data
-    #     data.pop
-
-    #     user = Profile.objects.create_user(**data)
-    #     profile = Profile(user=user)
-    #     profile.save()

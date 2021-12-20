@@ -15,9 +15,8 @@ urlpatterns = [
     path('passwordrequest', views.Passwordrequest.as_view(), name='passwordrequest'),
     path('contact', auth_views.LoginView.as_view(template_name = 'pages/contact.html'), name='contact'),
     path('logout', auth_views.logout_then_login, name="logout"),
-    path('profile', views.Profile.as_view(), name='profile'),
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url('ckeditor/', include('ckeditor_uploader.urls')),
 
     #vistas con include
-    path('users/',include('apps.users.urls')),
+    path('users/',include('apps.users.urls'), name='users'),
 ]

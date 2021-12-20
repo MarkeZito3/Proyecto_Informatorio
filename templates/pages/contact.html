@@ -26,19 +26,13 @@
           <div class="form-floating">
             <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
             <label for="floatingPassword">Password</label>
-            <a href="{% url 'passwordrequest' %}">¿Olvidaste tu contraseña?</a>   
-          </div>
-
-          <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
           </div>
           <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
           <p class="mt-5 mb-3 text-muted"></p>
+          <div class="CreateAccount">¿No tienes cuenta? <a href="{% url 'register' %}">Crea una</a></div>
         </form>
       </main>
-      <div class="CreateAccount">¿No tienes cuenta? <a href="{% url 'register' %}">Crea una</a></div>
+      
     </body>
   </main><!-- End #main -->
 {% endblock body_block%}

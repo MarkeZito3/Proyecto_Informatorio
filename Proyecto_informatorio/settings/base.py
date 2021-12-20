@@ -37,7 +37,7 @@ MY_APPS = [
     'apps.blogs',
     'apps.users',
     'apps.comments',
-    'apps.categories',
+    # 'apps.categories',
     'ckeditor',
     'ckeditor_uploader',
 ]

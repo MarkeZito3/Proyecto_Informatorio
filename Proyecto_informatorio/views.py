@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from django.views.generic.detail import DetailView
 
+from apps.users.models import User
+from apps.core.mixins import *
 #views basadas en clases 
 """
     todos estos se encuentran en django.views.generic
@@ -28,8 +31,6 @@ class Blog(TemplateView):
 class Passwordrequest(TemplateView):
     template_name = "pages/passwordrequest.html"
 
-class Profile(TemplateView):
-    template_name = "pages/profile.html"
 
 #views basadas en funciones
 

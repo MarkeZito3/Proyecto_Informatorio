@@ -65,11 +65,12 @@
               
 
             {% comment %} login/register/user {% endcomment %}
+            
             {% if user.is_authenticated %}
-              {% ifequal request.path '/profile' %} 
-                <li><a href="{% url 'profile' %}" class="active">{{user.username}}</a></li>
+              {% ifequal request.path '/users/{{user.username}}' %} 
+                <li><a href="users/{{user.username}}" class="active">MI PERFIL</a></li>
               {% else %}
-                <li><a href="{% url 'profile' %}">{{user.username}}</a></li>
+                <li><a href="users/{{user.username}}">MI PERFIL</a></li>
               {% endifequal %}
             {% else %}
               {% ifequal request.path '/contact' %} 
@@ -78,7 +79,6 @@
               <li><a href="{% url 'contact' %}">Iniciar sesión / Registrarse</a></li>
               {% endifequal %}
             {% endif %}
-              
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
