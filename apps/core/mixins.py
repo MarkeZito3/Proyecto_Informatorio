@@ -14,7 +14,7 @@ class AdminRequiredMixins():
 	def dispatch(self, request, *args, **kwars):
 		# print(self.permisos_requeridos)
 		if not request.user.es_administrador:
-			raise PermissionDenied
+			return redirect('index')
 		return super(AdminRequiredMixins, self).dispatch(request, *args, **kwars)
 
 class WriterRequiredMixins():
