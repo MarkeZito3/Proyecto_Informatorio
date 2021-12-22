@@ -58,9 +58,9 @@
 
             {% comment %} blogs {% endcomment %}
             {% ifequal request.path '/blog' %}
-              <li><a href="{% url 'blog' %}" class="active">Blog</a></li>
+              <li><a  class="active">Blog</a></li>
             {% else %}
-              <li><a href="{% url 'blogs:detail' %}" class="">Blog</a></li>
+              <li><a href="{% url 'blogs:detail' 'asdasd' %}" class="">Blog</a></li>
             {% endifequal %}
               
 
