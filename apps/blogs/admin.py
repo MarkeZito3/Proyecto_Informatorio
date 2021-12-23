@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from .models import Post
 # Register your models here.
 from apps.blogs.models import Post
 
@@ -16,5 +16,6 @@ class PostAdmin(admin.ModelAdmin):
         self.exclude = ('url', )
         form = super(PostAdmin, self).get_form(request, obj, **kwargs) #permite realizar cambios en el formulario antes de mostrarlo
         form.base_fields['user'].initial = request.user
-        form.base_fields['profile'].initial = request.user.profile
+        # form.base_fields['profile'].initial = request.user.profile
         return form
+

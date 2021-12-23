@@ -60,17 +60,17 @@
             {% ifequal request.path '/blog' %}
               <li><a  class="active">Blog</a></li>
             {% else %}
-              <li><a href="{% url 'blogs:detail' 'asdasd' %}" class="">Blog</a></li>
+              <li><a href="{% url 'blogs:blogs'%}" class="">Blog</a></li>
             {% endifequal %}
               
 
             {% comment %} login/register/user {% endcomment %}
             
             {% if user.is_authenticated %}
-              {% ifequal request.path '/users/{{user.username}}' %} 
-                <li><a href="users/{{user.username}}" class="active">MI PERFIL</a></li>
+              {% ifequal request.path "/users/{user.username}" %} 
+                <li><a href="{% url 'users:profile' user.username %}" class="active">MI PERFIL</a></li>
               {% else %}
-                <li><a href="users/{{user.username}}">MI PERFIL</a></li>
+                <li><a href="{% url 'users:profile' user.username %}">MI PERFIL</a></li>
               {% endifequal %}
             {% else %}
               {% ifequal request.path '/contact' %} 

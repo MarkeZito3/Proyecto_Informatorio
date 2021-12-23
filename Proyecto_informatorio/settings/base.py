@@ -37,9 +37,8 @@ MY_APPS = [
     'apps.blogs',
     'apps.users',
     'apps.comments',
-    # 'apps.categories',
-    'ckeditor',
-    'ckeditor_uploader',
+    'apps.categories',
+    'django_quill',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + MY_APPS
@@ -133,7 +132,6 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
 
 AUTH_USER_MODEL = "users.User"
 
@@ -141,3 +139,32 @@ AUTH_USER_MODEL = "users.User"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+QUILL_CONFIGS = {
+    'default':{
+        'theme': 'snow',
+        'modules': {
+            'syntax': True,
+            'toolbar': [
+                ['bold', 'italic', 'underline', 'strike'], 
+                ['blockquote', 'code-block', 'link'],
+
+                [{ 'header': 1 }, { 'header': 2 }, { 'header': 3 }],
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                [{ 'script': 'sub'}, { 'script': 'super' }],
+                [{ 'indent': '-1'}, { 'indent': '+1' }],
+                [{ 'direction': 'rtl' }],
+
+                [{ 'size': ['small', True, 'large', 'huge'] }],
+                [{ 'header': [1, 2, 3, 4, 5, 6, False] }],
+
+                [{ 'color': [] }, { 'background': [] }],
+                [{ 'font': [] }],
+                [{ 'align': [] }],
+
+                ['clean']
+            ]
+        }
+    }
+}

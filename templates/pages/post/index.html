@@ -4,16 +4,18 @@
 {% block body_block %}
 <div class="row">
     <div class="col-md-8">
-
-      <h1 class="my-4">Simple Blog
+      <br/><br/><br/><br/>
+      <h1 class="my-4">Simple Blog 
       </h1>
-      {% for post in posts %}
+
+      {% for post in posteos %}
       <div class="card mb-4">
-        <img class="card-img-top" src="{{ post.image_header.url }}" alt="Card image cap">
+        <img class="card-img-top" src="{{post.image_header.url}}">
+        
         <div class="card-body">
           <h2 class="card-title">{{post.title}}</h2>
           <p class="card-text">{{post.post|safe|truncatechars:300}}</p>
-          <a href="{% url 'posts:detail' post.url%}" class="btn btn-primary">Leer más &rarr;</a>
+          <a href="{% url 'blogs:detail' post.url %}" class="btn btn-primary">Leer más &rarr;</a>
         </div>
         <div class="card-footer text-muted">
           Escrito el {{post.created}}
@@ -21,6 +23,8 @@
         </div>
       </div>
       {% endfor %}
+
+
       <ul class="pagination justify-content-center mb-4">
         <li class="page-item">
           <a class="page-link" href="#">&larr; Older</a>
@@ -29,6 +33,7 @@
           <a class="page-link" href="#">Newer &rarr;</a>
         </li>
       </ul>
+
 
     </div>
     {% endblock body_block%}
