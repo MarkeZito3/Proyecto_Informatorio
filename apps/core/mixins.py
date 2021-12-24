@@ -19,7 +19,7 @@ class AdminRequiredMixins():
 
 class WriterRequiredMixins():
     def dispatch(self, request, *args, **kwars):
-        if not request.user.es_writer and not request.user.es_administrador:
+        if not request.user.es_writer and not request.user.es_administrador and not request.user.is_superuser:
             return redirect('index')
         return super(WriterRequiredMixins, self).dispatch(request, *args, **kwars)
 

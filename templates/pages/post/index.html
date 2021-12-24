@@ -2,6 +2,22 @@
 {% load static %}
 
 {% block body_block %}
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Blogs</h2>
+      <ol>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'blogs:blogs' %}">Blogs</a></li>
+      </ol>
+    </div>
+
+  </div>
+</section><!-- End Breadcrumbs -->
+
 <div class="row">
     <div class="col-md-8">
       <br/><br/><br/><br/>
@@ -14,12 +30,12 @@
         
         <div class="card-body">
           <h2 class="card-title">{{post.title}}</h2>
-          <p class="card-text">{{post.post|safe|truncatechars:300}}</p>
+          <p class="card-text">{{post.post|truncatechars:300}}</p>
           <a href="{% url 'blogs:detail' post.url %}" class="btn btn-primary">Leer más &rarr;</a>
         </div>
         <div class="card-footer text-muted">
           Escrito el {{post.created}}
-          <a href="#">{{post.user.username}}</a>
+          <a href="{% url 'users:profile' user.username %}">{{post.user.username}}</a>
         </div>
       </div>
       {% endfor %}

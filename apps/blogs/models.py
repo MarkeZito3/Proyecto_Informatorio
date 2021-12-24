@@ -3,7 +3,7 @@ from django.db                  import models
 from django.utils               import timezone
 from django.utils.text          import slugify
 from django.contrib.auth.models import User as AbstractBaseUser, PermissionsMixin
-from django_quill.fields        import QuillField
+# from django_quill.fields        import QuillField
 # from apps.categories.models   import Category
 from apps.users.models          import User
 from apps.categories.models   import Category
@@ -28,12 +28,11 @@ class Post(models.Model):
 
     title = models.CharField(max_length=255)
     image_header = models.ImageField(upload_to='posts/photos',null=True, blank=True)#Cabecera del post
-    post = QuillField()#permite crer textos con distintos tamaños, tipos de letra, colores, etc
+    post = models.TextField()#permite crer textos con distintos tamaños, tipos de letra, colores, etc
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     is_draft = models.BooleanField(default=True)#Un campo de tipo booleano, guardaremos si es un borrador o lo queremos mostrar en la web.
     url = models.SlugField(max_length=255, unique=True)
-    views = models.PositiveIntegerField(default=0)
     categories = models.ManyToManyField(Category) # El listado de categorías asignadas a un post, es una relación de tipo N a N ya que un post puede tener varias categorías y una categoría puede pertenecer a varios posts.
 
     class Meta:

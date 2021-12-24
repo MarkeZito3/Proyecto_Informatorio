@@ -38,7 +38,7 @@ MY_APPS = [
     'apps.users',
     'apps.comments',
     'apps.categories',
-    'django_quill',
+    # 'django_quill',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + MY_APPS
@@ -141,30 +141,30 @@ AUTH_USER_MODEL = "users.User"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-QUILL_CONFIGS = {
-    'default':{
-        'theme': 'snow',
-        'modules': {
-            'syntax': True,
-            'toolbar': [
-                ['bold', 'italic', 'underline', 'strike'], 
-                ['blockquote', 'code-block', 'link'],
+# QUILL_CONFIGS = {
+#     'default':{
+#         'theme': 'snow',
+#         'modules': {
+#             'syntax': True,
+#             'toolbar': [
+#                 ['bold', 'italic', 'underline', 'strike'], 
+#                 ['blockquote', 'code-block', 'link'],
 
-                [{ 'header': 1 }, { 'header': 2 }, { 'header': 3 }],
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                [{ 'script': 'sub'}, { 'script': 'super' }],
-                [{ 'indent': '-1'}, { 'indent': '+1' }],
-                [{ 'direction': 'rtl' }],
+#                 [{ 'header': 1 }, { 'header': 2 }, { 'header': 3 }],
+#                 [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+#                 [{ 'script': 'sub'}, { 'script': 'super' }],
+#                 [{ 'indent': '-1'}, { 'indent': '+1' }],
+#                 [{ 'direction': 'rtl' }],
 
-                [{ 'size': ['small', True, 'large', 'huge'] }],
-                [{ 'header': [1, 2, 3, 4, 5, 6, False] }],
+#                 [{ 'size': ['small', True, 'large', 'huge'] }],
+#                 [{ 'header': [1, 2, 3, 4, 5, 6, False] }],
 
-                [{ 'color': [] }, { 'background': [] }],
-                [{ 'font': [] }],
-                [{ 'align': [] }],
+#                 [{ 'color': [] }, { 'background': [] }],
+#                 [{ 'font': [] }],
+#                 [{ 'align': [] }],
 
-                ['clean']
-            ]
-        }
-    }
-}
+#                 ['clean']
+#             ]
+#         }
+#     }
+# }

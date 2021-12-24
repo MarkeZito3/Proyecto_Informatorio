@@ -1,9 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
+from django.urls.base import reverse_lazy
 from django.views.generic import DetailView, ListView
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView
+from apps.blogs.forms import TextoErriquesido
 
 # Models
 from apps.blogs.models import Post
@@ -52,30 +54,33 @@ class PostDetailView(DetailView):
         context['form_comments'] = CreateCommentForm()
         return context
 
-class CreatePost(WriterRequiredMixins,CreateView):
+class CreatePost(LoginRequiredMixin,WriterRequiredMixins,CreateView):
     model = Post
     template_name = 'pages/post/create-blog.html'
-    fields = ('__all__')
-    success_url = '/'
+    forms=TextoErriquesido
+    # fields = ('__all__')
+    fields = ['title','image_header','post','is_draft','categories']
+    labels = ['titlulo','imagen','posteo','borrador','categorçia']
+    def form_valid(self, form):
+        f = form.save(commit= False)
+        f.user_id = self.request.user.id
+        return super(CreatePost, self).form_valid(form)
 
+    success_url = reverse_lazy('blogs:blogs')
 
-def save_comment(request):
-    if request.method == 'POST':
-        url = request.POST['url']
-        post = {
-            'user': request.user.id,
-            # 'profile': request.user.id,
-            'comment': request.POST['comment'],
-            'post': request.POST['post']
-        }
-        form = CreateCommentForm(post)
-        if form.is_valid():
-            form.save()
-            return redirect('blogs:detail', url=url)
-    else:
-        return HttpResponse(status=405)
-    return HttpResponse(status=500)
-
-def redirect_blogs(request):
-    if request.path == 'blogs/post/':
-        return redirect('blogs:blogs')
+# def save_comment(request):
+#     if request.method == 'POST':
+#         url = request.POST['url']
+#         post = {
+#             'user': request.user.id,
+#             # 'profile': request.user.id,
+#             'comment': request.POST['comment'],
+#             'post': request.POST['post']
+#         }
+#         form = CreateCommentForm(post)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('blogs:detail', url=url)
+#     else:
+#         return HttpResponse(status=405)
+#     return HttpResponse(status=500)
