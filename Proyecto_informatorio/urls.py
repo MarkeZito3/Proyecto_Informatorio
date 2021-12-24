@@ -9,6 +9,7 @@ from django.views.static import serve
 # from django.views.generic import TemplateView
 
 from . import views
+from apps.blogs.views import CreatePost
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -20,5 +21,6 @@ urlpatterns = [
     
     path('users/', include('apps.users.urls')),
     path('blogs/', include('apps.blogs.urls')),
+   
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

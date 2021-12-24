@@ -27,8 +27,9 @@ class User(AbstractUser):
     es_writer = models.BooleanField(default=False)
     es_comment = models.BooleanField(default=True)
     es_administrador = models.BooleanField(default=False)
-    # foto = models.ImageField()
+    photo = models.ImageField(upload_to='users/pictures', blank=True, null=True)
 
+    
     class Meta:
         db_table = 'usuarios'
     

@@ -21,5 +21,5 @@ class Registrarme(CreateView):
 
 class Profile(LoginRequiredMixin,DetailView):
 
-    template_name = "pages/profile.html"
+    template_name = "pages/perfil.html"
     model = User
