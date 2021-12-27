@@ -2,8 +2,6 @@
 
 ## Integrantes:
 - Pereyra Marcos Gabriel
-- Ortiz Roque Fernando
-- Zeniquel Federico
 - Delgado Gonzalo Nicolas
 - Barreto Santiago Emanuel
 
